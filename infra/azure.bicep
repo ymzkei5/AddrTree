@@ -1,0 +1,34 @@
+param resourceBaseName string
+param functionAppSKU string
+param aadAppClientId string
+param aadAppTenantId string
+param aadAppOauthAuthorityHost string
+param staticWebAppSku string
+@secure()
+param aadAppClientSecret string
+param location string = resourceGroup().location
+param serverfarmsName string = resourceBaseName
+param functionAppName string = resourceBaseName
+param staticWebAppName string = resourceBaseName
+
+// Azure Static Web Apps that hosts your static web site
+resource swa 'Microsoft.Web/staticSites@2022-09-01' = {
+  name: staticWebAppName
+  // SWA do not need location setting
+  location: 'centralus'
+  sku: {
+    name: staticWebAppSku
+    tier: staticWebAppSku
+  }
+  properties:{}
+}
+
+var siteDomain = swa.properties.defaultHostname
+
+// The output will be persisted in .env.{envName}. Visit https://aka.ms/teamsfx-actions/arm-deploy for more details.
+output TAB_DOMAIN string = siteDomain
+output TAB_HOSTNAME string = siteDomain
+output TAB_ENDPOINT string = 'https://${siteDomain}'
+output API_FUNCTION_ENDPOINT string = ''
+output AZURE_STATIC_WEB_APPS_RESOURCE_ID string = swa.id
+output API_FUNCTION_RESOURCE_ID string = ''

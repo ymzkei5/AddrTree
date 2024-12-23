@@ -1,0 +1,49 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.17",
+    "version": "1.0.3",
+    "id": "${{TEAMS_APP_ID}}",
+    "developer": {
+        "name": "Keigo YAMAZAKI (@ymzkei5)",
+        "websiteUrl": "${{TAB_ENDPOINT}}/index.html#/termsofuse",
+        "privacyUrl": "${{TAB_ENDPOINT}}/index.html#/termsofuse",
+        "termsOfUseUrl": "${{TAB_ENDPOINT}}/index.html#/termsofuse"
+    },
+    "icons": {
+        "color": "icon.png",
+        "outline": "iconOutline.png"
+    },
+    "name": {
+        "short": "階層型アドレス帳のような何か",
+        "full": "階層型アドレス帳のような何か"
+    },
+    "description": {
+        "short": "階層型アドレス帳のような何かです。",
+        "full": "TeamsやOutlookの「アプリ」 （タブ）として動作します（ 「アドイン」ではありません）。Entra IDの「ジョブ情報」の「部署」 （department）の情報をもとに階層を表示します。管理者はこのアプリに対してGraphのUser.Read.Allのユーザに委任された権限を承認する必要があります。"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "configurableTabs": [],
+    "staticTabs": [
+        {
+            "entityId": "index",
+            "name": "Home",
+            "contentUrl": "${{TAB_ENDPOINT}}/index.html#/tab",
+            "websiteUrl": "${{TAB_ENDPOINT}}/termsofuse.html",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity"
+    ],
+    "validDomains": [
+        "${{TAB_HOSTNAME}}"
+    ],
+    "webApplicationInfo": {
+        "id": "${{AAD_APP_CLIENT_ID}}",
+        "resource": "api://${{TAB_DOMAIN}}/${{AAD_APP_CLIENT_ID}}"
+    }
+}
