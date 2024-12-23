@@ -1,2 +1,19 @@
-# AddrTree
-Teams/Outlookで動作する「階層型アドレス帳」統合アプリ。Entraユーザアカウントに半角スペース区切りの部署名が設定されている前提で動作する。
+# <img src="./public/icon.png" width="32px"/> AddrTree:階層型アドレス帳のような何か について
+
+![Screenshot](./public/screenshot.png)
+
+<u>本アプリは現状のまま提供され、不具合その他動作の保証は一切いたしません。</u>
+
+- 階層型アドレス帳のような何かです。
+- Teams や Outlook の 「統合アプリ」 （タブ）として動作します（ 「アドイン」ではありません）。
+- Entra ID の「ジョブ情報」 の 「部署」 （department）に半角スペース区切りで部署名が登録されている必要があります。
+- 管理者はこのアプリに対して Graph の User.Read.All の ユーザに委任された権限を承認する必要があります。
+
+## 実行方法
+
+1. Microsoft の Visual Studio Code (vscode) をインストールします。
+2. vscode に、Microsoft Teams Toolkit 拡張機能をインストールします。
+3. このアプリをダウンロードしたフォルダを開きます。
+4. localhostで実行したり、検証環境にプロビジョニング、デプロイ、発行などができます。
+
+by Keigo YAMAZAKI (@ymzkei5)
